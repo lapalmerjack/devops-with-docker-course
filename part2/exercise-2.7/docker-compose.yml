@@ -1,0 +1,26 @@
+---
+
+services:
+  frontend: 
+    image: machine-learning-frontend
+    ports: 
+      - 3000:3000
+  backend:
+    image: machine-learning-backend
+    volumes:
+      - model:/src/model
+    depends_on: 
+      - machine-learning-training
+    ports:
+      - 5000:5000
+  training:
+    image: machine-learning-training
+    volumes:
+      - model:/src/model
+      - data:/src/data
+      - image:/src/img
+volumes: 
+  model:
+  data:
+  image:
+

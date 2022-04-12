@@ -1,0 +1,20 @@
+---
+services:
+   frontend:
+      image: fronend-server
+      ports:
+        - 5000:5000
+   cache:
+      image: redis 
+      restart: unless-stopped
+      ports: 
+        - 6379:6379
+
+
+   backend:
+     image: backend-server
+     ports:
+       - 8080:8080
+     environment:
+       REDIS_HOST: cache
+version: "3.8"

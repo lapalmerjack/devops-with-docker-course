@@ -1,0 +1,8 @@
+--- 
+services: 
+   web: 
+      image: devopsdockeruh/simple-web-service 
+      container_name: bubblebooties
+      volumes: 
+      - "./text.log:/usr/src/app/text.log"
+version: "3.8"
